@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Angular typeahead google Maps Geocoder",
   "main": [
-    "ng-geocoder-input.js"
+    "dist/ng-geocoder-input.js"
   ],
   "repository": {
     "type": "git",
