@@ -3,13 +3,6 @@ module.exports = function (grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
 
-        concat: {
-            dist: {
-                src: ['src/*.js'],
-                dest: 'dist/<%= pkg.name %>.js'
-            }
-        },
-
         jshint: {
             files: ['Gruntfile.js', 'src/*.js'],
             options: {
@@ -24,7 +17,7 @@ module.exports = function (grunt) {
                 banner: '/*! <%= pkg.name %> <%= pkg.version %> */\n'
             },
             build: {
-                src: 'dist/<%= pkg.name %>.js',
+                src: 'src/<%= pkg.name %>.js',
                 dest: 'dist/<%= pkg.name %>.min.js'
             }
         }
@@ -32,7 +25,6 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-concat');
 
-    grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+    grunt.registerTask('default', ['jshint', 'uglify']);
 };
