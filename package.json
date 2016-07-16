@@ -1,0 +1,35 @@
+{
+  "name": "ng-geocoder-input",
+  "version": "0.0.1",
+  "description": "Angular typeahead google Maps Geocoder",
+  "main": [
+    "ng-geocoder-input.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jguittard/ng-geocoder-input.git"
+  },
+  "dependencies": {
+    "angular": "1.5.7"
+  },
+  "devDependencies": {
+    "grunt-contrib-uglify": "~0.5.1",
+    "grunt-contrib-jshint": "~0.11.2",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-connect": "~0.11.2",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-clear": "~0.2"
+  },
+  "keywords": [
+    "angular",
+    "google",
+    "maps",
+    "geocoder"
+  ],
+  "author": "Julien Guittard <julien.guittard@me.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jguittard/ng-geocoder-input/issues"
+  },
+  "homepage": "https://github.com/jguittard/ng-geocoder-input"
+}
