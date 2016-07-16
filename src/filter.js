@@ -1,11 +1,15 @@
-angular
-    .module('ng-geocoder-input')
-    .filter(filter);
+(function(angular) {
+    'use strict';
 
-filter.$inject = ['$sce'];
+    angular
+        .module('ng-geocoder-input')
+        .filter(filter);
 
-function filter($sce) {
-    return function(text) {
-        return $sce.trustAsHtml(text);
-    };
-}
+    filter.$inject = ['$sce'];
+
+    function filter($sce) {
+        return function(text) {
+            return $sce.trustAsHtml(text);
+        };
+    }
+})(angular);

@@ -1,43 +1,47 @@
-angular
-    .module('ng-geocoder-input')
-    .directive(directive);
+(function(angular) {
+    'use strict';
 
-directive.$inject = ['geocoder'];
+    angular
+        .module('ng-geocoder-input')
+        .directive(directive);
 
-function directive(geocoder) {
-    return {
-        restrict: 'AE',
+    directive.$inject = ['geocoder'];
 
-        scope: {
-            "placeid": '@',
-            "output": '=',
-            "placeholder": '@',
-            "minLength": '@',
-            "waitMs": '@'
-        },
+    function directive(geocoder) {
+        return {
+            restrict: 'AE',
 
-        templateUrl: 'angular-google-maps-geocoder.html',
+            scope: {
+                "placeid": '@',
+                "output": '=',
+                "placeholder": '@',
+                "minLength": '@',
+                "waitMs": '@'
+            },
 
-        link: function($scope, element, attrs) {
+            templateUrl: 'angular-google-maps-geocoder.html',
 
-            //Fetch the initial place_id data
-            if(attrs.placeid !== undefined) {
-                geocoder.geocode_by_id(attrs.placeid).then(function(results) {
-                    if(results.length > 0) $scope.output = results[0];
-                });
+            link: function($scope, element, attrs) {
+
+                //Fetch the initial place_id data
+                if(attrs.placeid !== undefined) {
+                    geocoder.geocode_by_id(attrs.placeid).then(function(results) {
+                        if(results.length > 0) $scope.output = results[0];
+                    });
+                }
+
+                //Get places when the user types in the input field
+                $scope.getLocation = function(val) {
+                    return geocoder.geocode_by_query(val);
+                };
+
+                //Format the received data
+                $scope.format = function(val) {
+                    if(!angular.isObject(val) || !val.hasOwnProperty("formatted_address")) return;
+                    return val.formatted_address;
+                };
+
             }
-
-            //Get places when the user types in the input field
-            $scope.getLocation = function(val) {
-                return geocoder.geocode_by_query(val);
-            };
-
-            //Format the received data
-            $scope.format = function(val) {
-                if(!angular.isObject(val) || !val.hasOwnProperty("formatted_address")) return;
-                return val.formatted_address;
-            };
-
-        }
-    };
-}
+        };
+    }
+})(angular);
