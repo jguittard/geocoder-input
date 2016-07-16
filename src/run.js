@@ -21,7 +21,7 @@
             "    typeahead-template-url='angular-google-maps-geocoder-item.html'" +
             "    typeahead-input-formatter='format(output)'" +
             "    typeahead='address for address in getLocation($viewValue)'" +
-            "    typeahead-loading='loadingLocations' class='form-control'>";
+            "    typeahead-loading='loadingLocations' class='form-control c-square c-theme'>";
         $templateCache.put('angular-google-maps-geocoder.html', template);
     }
 })();
